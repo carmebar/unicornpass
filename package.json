@@ -1,0 +1,28 @@
+{
+  "title": "UnicornPass",
+  "name": "unicornpass",
+  "version": "0.1",
+  "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting.",
+  "main": "index.js",
+  "author": "Carlos Melero",
+  "engines": {
+    "firefox": ">=38.0a1",
+    "fennec": ">=38.0a1"
+  },
+  "license": "MIT",
+  "keywords": [
+    "hash",
+    "password",
+    "SHA1",
+    "crypto",
+    "security",
+    "color",
+    "colour"
+  ],
+  "preferences":[{
+    "name":  "salt",
+    "title": "Salt",
+    "type":  "string",
+    "description": "The salt prevents the same password to give the same colors on different computers. Salt is unique by default. Do NOT edit unless you know what you're doing."
+  }]
+}
