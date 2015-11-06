@@ -16,7 +16,7 @@ window.addEventListener("keyup",function(event){
   if (e.type.toLowerCase() === 'password'){
     if(e.value.length > 0){
       self.port.emit('hashIt', e.value);
-      self.port.on('hashedIt', function(hash){
+      self.port.once('hashedIt', function(hash){
           var xor   = hash.reduce((a,b)=>a^b, 0);
 
           if(typeof e.__old_style === "undefined")
