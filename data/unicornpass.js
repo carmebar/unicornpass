@@ -13,7 +13,8 @@ window.addEventListener("keyup",function(event){
   }
   
   var e = event.target;
-  if (e.type.toLowerCase() === 'password'){
+  if (typeof e.type !== 'undefined' && 
+      e.type.toLowerCase() === 'password'){
     if(e.value.length > 0){
       self.port.emit('hashIt', e.value);
       self.port.once('hashedIt', function(hash){

@@ -33,7 +33,8 @@ window.addEventListener("keyup",function(event){
     return 'rgba(' + [(i>> 24) & 255, (i>> 16) & 255, (i>> 8) & 255, (i & 255)/255].join() + ')';
   }
   var e = event.target;
-  if (e.type.toLowerCase() === 'password'){
+  if (typeof e.type !== 'undefined' && 
+      e.type.toLowerCase() === 'password'){
     if(e.value.length > 0){
       var hash  = CryptoJS.SHA1(salt+e.value).words;
       var xor   = hash.reduce((a,b)=>a^b, 0);
