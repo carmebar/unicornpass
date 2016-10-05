@@ -1,7 +1,7 @@
 {
   "title": "UnicornPass",
   "name": "unicornpass",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting. https://github.com/carmebar/unicornpass",
   "main": "index.js",
   "author": "Carlos Melero",
@@ -24,5 +24,6 @@
     "title": "Salt",
     "type":  "string",
     "description": "The salt prevents the same password to give the same colors on different computers. Salt is unique by default. Do NOT edit unless you know what you're doing."
-  }]
+  }],
+  "permissions": {"multiprocess": true}
 }
