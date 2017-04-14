@@ -4,7 +4,7 @@
 // @include     *
 // @version     0.1
 // @run-at      document-end
-// @require     https://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js
+// @require     https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/sha1.js
 // @grant       GM_setValue
 // @grant       GM_getValue
 // ==/UserScript==
