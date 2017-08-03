@@ -1,5 +1,5 @@
 # UnicornPass
-Firefox/Fennec extension. Also working on Chrome/Chromium using the GreaseMonkey script.
+Web Extensions compatible add-on. Tested on Chrome, Firefox and Firefox Mobile(Fennec)
 Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting.
 
 https://addons.mozilla.org/en-US/firefox/addon/unicornpass/
