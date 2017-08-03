@@ -1,13 +1,13 @@
 "use strict";
 var salt;
 
-browser.storage.local.get('salt').then(function(item){
+browser.storage.local.get('salt').then((item) => {
   if (Array.isArray && Array.isArray(item))
     item = item[0]; //Workaround FF < 52
   salt = item.salt;
 });
 
-window.addEventListener('keyup',function(event){
+window.addEventListener('keyup',(event) => {
   function buffer2dwords(buffer){
     var r = [];
     var bytes = new DataView(buffer);
@@ -22,7 +22,7 @@ window.addEventListener('keyup',function(event){
     if(colors.length == 1) return colors[0];
     var s = 100/colors.length;
 
-    return 'linear-gradient(to right ,' + colors.map(function(v,i){
+    return 'linear-gradient(to right ,' + colors.map((v,i) => {
       return v + " " + i*s + "%," + v + " " + (i+1)*s + "%"
     }).join() + ')';
   }
@@ -35,7 +35,7 @@ window.addEventListener('keyup',function(event){
   if (typeof e.type !== 'undefined' && e.type.toLowerCase() === 'password'){
     if(e.value.length > 0){
       var buffer = new TextEncoder("utf-8").encode(salt + e.value);
-      crypto.subtle.digest("SHA-1", buffer).then(function(buf){
+      crypto.subtle.digest("SHA-1", buffer).then((buf) => {
         var dw = buffer2dwords(buf);
         var xor= dw.reduce((a,b)=>a^b, 0);
         

@@ -26,7 +26,5 @@
     "page": "data/options.html"
   },
 
-  "content_security_policy": "default-src 'self'",
-
   "permissions": ["storage"]
 }
