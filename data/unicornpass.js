@@ -1,20 +1,23 @@
 "use strict";
-var salt;
-var browser = chrome || browser;
 
-if (typeof chrome !== "undefined"){
-browser.storage.local.get('salt', (item) => {
-  if (Array.isArray && Array.isArray(item))
-    item = item[0]; //Workaround FF < 52
-  salt = item.salt;
-});
-}else{
-browser.storage.local.get('salt').then((item) => {
-  if (Array.isArray && Array.isArray(item))
-    item = item[0]; //Workaround FF < 52
-  salt = item.salt;
-});
+var browser = typeof chrome === 'undefined'? browser : chrome;
+var salt;
+
+function getSalt(){
+  return new Promise((res, _) => {
+    if (typeof chrome !== 'undefined'){
+      browser.storage.local.get('salt', (r) => { res(r.salt); }); //Chrome uses callbacks
+    }else{
+      browser.storage.local.get('salt').then( (r) => {
+        if (Array.isArray && Array.isArray(r))
+          r = r[0]; //Workaround for FF < 52
+        res(r.salt);
+      });
+    }
+  });
 }
+
+getSalt().then((currentSalt) => { salt = currentSalt; });
 
 window.addEventListener('keyup',(event) => {
   function buffer2dwords(buffer){

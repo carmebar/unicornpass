@@ -1,16 +1,12 @@
-var browser = chrome || browser;
+"use strict";
 
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof chrome !== "undefined"){
-  chrome.storage.local.get("salt", (r) => {document.querySelector("#salt").value = r.salt;});
-  }else{
-  browser.storage.local.get("salt").then((r) => {document.querySelector("#salt").value = r.salt;});
-  }
+document.addEventListener('DOMContentLoaded', () => {
+  getSalt().then((salt) => { document.querySelector('#salt').value = salt; });
 });
 
-document.querySelector("form").addEventListener("submit", (e) => {
+document.querySelector('form').addEventListener('submit', (e) => {
   e.preventDefault();
   browser.storage.local.set({
-    salt: document.querySelector("#salt").value
+    salt: document.querySelector('#salt').value
   });
 });
