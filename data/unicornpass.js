@@ -1,11 +1,20 @@
 "use strict";
 var salt;
+var browser = chrome || browser;
 
+if (typeof chrome !== "undefined"){
+browser.storage.local.get('salt', (item) => {
+  if (Array.isArray && Array.isArray(item))
+    item = item[0]; //Workaround FF < 52
+  salt = item.salt;
+});
+}else{
 browser.storage.local.get('salt').then((item) => {
   if (Array.isArray && Array.isArray(item))
     item = item[0]; //Workaround FF < 52
   salt = item.salt;
 });
+}
 
 window.addEventListener('keyup',(event) => {
   function buffer2dwords(buffer){

@@ -1,3 +1,4 @@
+var browser = chrome || browser;
 browser.runtime.onInstalled.addListener((details) => {
   if (details.reason === "install")
     browser.storage.local.set({
