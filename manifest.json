@@ -5,7 +5,7 @@
   "version": "0.2.0",
   "author": "Carlos Melero",
   "homepage_url": "https://github.com/carmebar/unicornpass",
-  "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting. https://github.com/carmebar/unicornpass",
+  "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting.",
 
   "icons": {
     "48": "icon.png",
