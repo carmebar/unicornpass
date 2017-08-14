@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "UnicornPass",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Carlos Melero",
   "homepage_url": "https://github.com/carmebar/unicornpass",
   "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting.",
