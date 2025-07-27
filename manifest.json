@@ -1,6 +1,5 @@
 {
-
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "UnicornPass",
   "version": "0.2.1",
   "author": "Carlos Melero",
@@ -8,8 +7,9 @@
   "description": "Colorful password fields using SHA1 hash of your password. You will know if you typed the correct password before submitting.",
 
   "icons": {
+    "16": "icon.png",
     "48": "icon.png",
-    "96": "icon.png"
+    "128": "icon.png"
   },
 
   "content_scripts": [
@@ -18,13 +18,19 @@
       "js": ["data/unicornpass.js"]
     }
   ],
+  
   "background": {
-    "scripts": ["main.js"]
+    "service_worker": "main.js"
   },
 
   "options_ui": {
-    "page": "data/options.html"
+    "page": "data/options.html",
+    "open_in_tab": false
   },
 
-  "permissions": ["storage"]
+  "permissions": ["storage"],
+  
+  "action": {
+    "default_title": "UnicornPass"
+  }
 }
